@@ -1,0 +1,35 @@
+{
+  "name": "@so-xzen/api",
+  "version": "1.0.0",
+  "description": "My first Api express and mongodb",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx eslint ./src/**/*.mjs && node index.mjs",
+    "prod": "NODE_ENV=production node index.mjs",
+    "lint": "npx eslint ./src/**/*.mjs",
+    "lint:fix": "npx eslint ./src/**/*.mjs --fix",
+    "dev": "nodemon index.mjs"
+  },
+  "author": "Brand TIKOUE TIKOUE",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^7.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.2.4",
+    "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
+  }
+}
