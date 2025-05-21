@@ -15,10 +15,12 @@ import AlbumService from './services/albumService.mjs';
 import PhotoService from './services/photoService.mjs';
 import UserService from './services/userService.mjs';
 import AuthService from './services/authService.mjs';
+import ProfileGeneratorService from './services/profileGeneratorService.mjs';
 import AlbumController from './controllers/albumController.mjs';
 import PhotoController from './controllers/photoController.mjs';
 import UserController from './controllers/userController.mjs';
 import AuthController from './controllers/authController.mjs';
+import ProfileGeneratorController from './controllers/profileGeneratorController.mjs';
 
 // Middlewares
 import { apiLimiter } from './middlewares/rateLimit.mjs';
@@ -92,12 +94,14 @@ export default class Server {
     const photoService = new PhotoService(PhotoModel, AlbumModel);
     const userService = new UserService(UserModel);
     const authService = new AuthService(UserModel);
+    const profileGeneratorService = new ProfileGeneratorService();
 
     // Contrôleurs
     const albumController = new AlbumController(albumService);
     const photoController = new PhotoController(photoService);
     const userController = new UserController(userService);
     const authController = new AuthController(authService);
+    const profileGeneratorController = new ProfileGeneratorController();
 
     // Routes
     console.log('[API] Initialisation des routes...');
@@ -105,6 +109,7 @@ export default class Server {
     new routes.PhotoRoutes(this.app, photoController);
     new routes.AuthRoutes(this.app, authController);
     new routes.UserRoutes(this.app, userController);
+    new routes.ProfileGeneratorRoutes(this.app, profileGeneratorController);
     console.log('[API] Routes initialisées avec succès');
 
     // Middleware pour les routes non trouvées (404)
